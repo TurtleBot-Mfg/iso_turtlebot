@@ -1,0 +1,5 @@
+tasksel	tasksel/first	multiselect ubuntu-desktop
+d-i passwd/user-fullname string TurtleBot
+d-i passwd/username string turtlebot
+d-i base-installer/kernel/altmeta   string hwe-16.04
+d-i passwd/user-default-groups string adm audio cdrom video dialout dip plugdev lpadmin sambashare

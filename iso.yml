@@ -1,0 +1,93 @@
+# ryo-iso config file
+image: ubuntu/xenial
+arch: amd64
+variant: desktop
+name: TurtleBot ROS Kinetic
+
+apt:
+  repository:
+    - sources.list
+    # - sources.list.d/ros-latest.list
+    - sources.list.d/ros-testing.list
+    - ppa:hxr-io/turtlebot
+
+  purge:
+    - linux-signed-generic-hwe-16.04
+    - linux-headers-4.15.0-45
+    - linux-headers-4.15.0-45-generic
+    - linux-image-4.15.0-45-generic
+    - linux-image-unsigned-4.15.0-45-generic
+    - linux-modules-4.15.0-45-generic
+    - snapd-login-service
+    - snapd
+    - libreoffice-core
+    - libreoffice-common
+    - libreoffice-writer
+    - thunderbird
+
+  install:
+    ################################
+    # check-language-support
+    - hunspell-en-au
+    - hunspell-en-ca
+    - hunspell-en-gb
+    - hunspell-en-za
+    - hyphen-en-gb
+    - mythes-en-au
+    ################################
+    - linux-image-unsigned-4.15.0-65-generic
+    # - linux-generic-hwe-16.04
+    - libelf-dev
+    - git
+    - chrony
+    - python3-pip
+    - python3-vcstool
+    ################################
+    # Developer Class Utilities
+    - vim-nox
+    - silversearcher-ag
+    ################################
+    # Realsense Kludge
+    - amd64-microcode
+    - intel-microcode
+    - iucode-tool
+    - linux-headers-generic-hwe-16.04
+    - libusb-1.0-0-dev
+    - python3-yaml
+    - thermald
+    ################################
+    # - ros-kinetic-desktop-full
+    - ros-kinetic-desktop
+    - ros-kinetic-perception
+    # - ros-kinetic-turtlebot
+    - bash-bashrc.d
+    - turtlebot-wallpapers
+    - turtlebot-branding
+    - turtlebot-env
+    - turtlebot-doc
+    - turtlebot-desktop
+    - python-catkin-tools
+    - python-catkin-lint
+    - python3-rospkg-modules
+    - ros-kinetic-network-autoconfig
+    - ros-kinetic-robot-systemd
+    - ros-kinetic-robot-indicator
+    - ros-kinetic-turtlebot-loadout-kha1
+
+#dpkg:
+#  install:
+#    - ros-kinetic-network-autoconfig_0.1.1-1xenial-20191029-001751+0000_amd64.deb
+#    - ros-kinetic-robot-systemd_0.1.2-1xenial-20191106-101228+0000_amd64.deb
+#    - ros-kinetic-turtlebot-loadout-kha1_0.1.0-3xenial-20191029-002348+0000_amd64.deb
+#    - ros-kinetic-robot-indicator_0.1.3-0xenial_amd64.deb
+
+#pip:
+#  install:
+#    - PySide2
+#    - asyncqt
+#    - pyserial
+
+patch: ./bypass_realsense.sh
+
+qemu:
+  disk_size: 10G
