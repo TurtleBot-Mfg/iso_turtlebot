@@ -1,7 +1,5 @@
 # TurtleBot ISO
 
------
-
 **Table of Contents**
 
 * [Overview](#overview)
@@ -30,7 +28,7 @@ More detailed documentation is available [online](https://ryo-iso.readthedocs.io
 
 ## Issues
 Please file ISO bugs or feature requests against this repository or the
-appropiate debian package.
+appropiate package.
 
 ### Intel RealSense
 The Intel RealSense DKMS kernel module is currently not working  
